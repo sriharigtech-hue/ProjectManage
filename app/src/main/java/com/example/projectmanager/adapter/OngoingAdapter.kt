@@ -20,15 +20,20 @@ class OngoingAdapter(private val items: List<OngoingDomain>) :
     RecyclerView.Adapter<OngoingAdapter.Viewholder>() {
 
 
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Viewholder {
 
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.viewholder_ongoing, parent, false)
         return Viewholder(view)
 
+
+
     }
 
     override fun onBindViewHolder(holder: Viewholder, position: Int) {
+
 
         // Set item data
 
@@ -48,15 +53,12 @@ class OngoingAdapter(private val items: List<OngoingDomain>) :
         // Set background color based on item position
 
         with(holder) {
-            if (position==0) {
+            if (position == 0) {
                 layout.setBackgroundResource(R.drawable.dark_bg)
                 setTextColor(R.color.white)
             } else {
                 layout.setBackgroundResource(R.drawable.light_purple_bg)
                 setTextColor(R.color.darkPurple)
-
-
-
 
 
             }
@@ -88,8 +90,12 @@ class OngoingAdapter(private val items: List<OngoingDomain>) :
             date.setTextColor(itemView.context.getColor(colorRes))
             progressTxt.setTextColor(itemView.context.getColor(colorRes))
             progressBarPercent.setTextColor(itemView.context.getColor(colorRes))
-            pic.setColorFilter(ContextCompat.getColor(itemView.context, colorRes),PorterDuff.Mode.SRC_IN)
-            progressBar.progressTintList = ColorStateList.valueOf(ContextCompat.getColor(itemView.context, colorRes))
+            pic.setColorFilter(
+                ContextCompat.getColor(itemView.context, colorRes),
+                PorterDuff.Mode.SRC_IN
+            )
+            progressBar.progressTintList =
+                ColorStateList.valueOf(ContextCompat.getColor(itemView.context, colorRes))
 
 
         }

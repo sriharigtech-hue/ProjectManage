@@ -1,5 +1,6 @@
 package com.example.projectmanager.activity
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -16,13 +17,25 @@ class ProfileActivity : AppCompatActivity() {
      lateinit var binding: ActivityProfileBinding
      val ProfileViewModel: ProfileViewModel by viewModels()
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+
+        binding.backBtn.setOnClickListener {
+            val intent = Intent(this, DashBoardActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+            finish()
+        }
+
+
+        // Team Adapter setup
         binding.apply {
-            // Team Adapter setup
             val myTeamAdapter = MyTeamAdapter(ProfileViewModel.loadDataMyteam())
             viewTeam.apply {
                 adapter = myTeamAdapter
@@ -34,6 +47,7 @@ class ProfileActivity : AppCompatActivity() {
             }
 
             // Archive Adapter setup
+
             val archiveAdapter = ArchiveAdapter(ProfileViewModel.loadDataArchive())
             viewArchive.apply {
                 adapter = archiveAdapter

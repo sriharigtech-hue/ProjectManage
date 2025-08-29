@@ -1,20 +1,12 @@
 package com.example.projectmanager.adapter
 
 
-import android.content.res.ColorStateList
-import android.graphics.PorterDuff
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.ProgressBar
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.projectmanager.R
-import com.example.projectmanager.domain.OngoingDomain
 import com.example.projectmanager.domain.TeamDomain
 
 class MyTeamAdapter(private val items: List<TeamDomain>) :
@@ -38,8 +30,6 @@ class MyTeamAdapter(private val items: List<TeamDomain>) :
         holder.status.text = item.status
 
 
-
-
     }
 
     override fun getItemCount(): Int = items.size
@@ -52,8 +42,6 @@ class MyTeamAdapter(private val items: List<TeamDomain>) :
 
         val title: TextView = itemView.findViewById(R.id.titleTxt)
         val status: TextView = itemView.findViewById(R.id.statusTxt)
-
-
 
 
     }
